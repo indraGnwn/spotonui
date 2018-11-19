@@ -14,6 +14,7 @@
   <link href="css/mdb.min.css" rel="stylesheet">
   <!-- Your custom styles (optional) -->
   <link href="css/style.css" rel="stylesheet">
+  <link href="css/floatbutton.css" rel="stylesheet">
 </head>
 
 <body>
@@ -107,29 +108,238 @@
 </div>
 
 <!--Search-->
-        <form action="<?php echo site_url("home/search") ?>
-            <div class="row">
-                <div class="col-6 col-md-4">
-                    <div class="form-group" style="width: 50%; margin: 0 auto">
-                        <!-- <i class="fa fa-bars prefix"></i> -->
-                        <label for="sel1"></label>
-                        <select class="form-control" id="kategori" name="kategori">
-                                <option value="">Pilih Kategori</option>
-                                <option value="1">Aula</option>
-                                <option value="2">Lapangan</option>
-                                <option value="3">Ruang rapat</option>
-                                <option value="4">Lain Lain</option>
-                        </select>
-                    </div>
-                </div>  
-                <div class="input-group md-form form-sm form-2 pl-0 col col-md-4">
-                  <input class="form-control my-0 py-1 red-border" type="text" placeholder="Search" aria-label="Search">
-                  <div class="input-group-append">
-                    <span class="input-group-text red lighten-3" id="basic-text1"><i class="fa fa-search text-grey" aria-hidden="true"></i></span>
-                  </div>
-                </div>
+  <form action="<?php echo site_url("home/search") ?>
+      <div class="row">
+          <div class="col-6 col-md-4">
+              <div class="form-group" style="width: 50%; margin: 0 auto">
+                  <!-- <i class="fa fa-bars prefix"></i> -->
+                  <label for="sel1"></label>
+                  <select class="form-control" id="kategori" name="kategori">
+                          <option value="">Pilih Kategori</option>
+                          <option value="1">Aula</option>
+                          <option value="2">Lapangan</option>
+                          <option value="3">Ruang rapat</option>
+                          <option value="4">Lain Lain</option>
+                  </select>
+              </div>
+          </div>  
+          <div class="input-group md-form form-sm form-2 pl-0 col col-md-4">
+            <input class="form-control my-0 py-1 red-border" type="text" placeholder="Search" aria-label="Search">
+            <div class="input-group-append">
+              <span class="input-group-text red lighten-3" id="basic-text1"><i class="fa fa-search text-grey" aria-hidden="true"></i></span>
             </div>
-        </form>
+          </div>
+      </div>
+  </form>
+
+<!-- end  of search -->
+
+<!-- Post button -->
+  <a href="formPost.html" class="act-btn">
+   +
+  </a>
+<!-- end  post buttn -->
+
+<!-- Card -->
+<div class="container">
+  <div class="row">
+      <div class="col-md-3 card form-group">
+      
+      <!-- Card image -->
+      <div class="view overlay">
+        <img class="card-img-top" src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg" alt="Card image cap">
+        <a href="#!">
+          <div class="mask rgba-white-slight"></div>
+        </a>
+      </div>
+
+      <!-- Card content -->
+      <div class="card-body">
+
+        <!-- Title -->
+        <h4 class="card-title">Card title</h4>
+        <!-- Text -->
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <!-- Button -->
+        <a href="#" class="btn btn-primary">Button</a>
+      </div>
+    </div>
+
+    <div class="col-md-3 card form-group">
+        <!-- Card image -->
+      <div class="view overlay">
+        <img class="card-img-top" src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg" alt="Card image cap">
+        <a href="#!">
+          <div class="mask rgba-white-slight"></div>
+        </a>
+      </div>
+
+      <!-- Card content -->
+      <div class="card-body">
+
+        <!-- Title -->
+        <h4 class="card-title">Card title</h4>
+        <!-- Text -->
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <!-- Button -->
+        <a href="#" class="btn btn-primary">Button</a>
+      </div>
+    </div>
+
+    <div class="col-md-3 card form-group">
+        <!-- Card image -->
+      <div class="view overlay">
+        <img class="card-img-top" src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg" alt="Card image cap">
+        <a href="#!">
+          <div class="mask rgba-white-slight"></div>
+        </a>
+      </div>
+
+      <!-- Card content -->
+      <div class="card-body">
+
+        <!-- Title -->
+        <h4 class="card-title">Card title</h4>
+        <!-- Text -->
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <!-- Button -->
+        <a href="#" class="btn btn-primary">Button</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-4 card form-group">
+        <!-- Card image -->
+      <div class="view overlay">
+        <img class="card-img-top" src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg" alt="Card image cap">
+        <a href="#!">
+          <div class="mask rgba-white-slight"></div>
+        </a>
+      </div>
+
+      <!-- Card content -->
+      <div class="card-body">
+
+        <!-- Title -->
+        <h4 class="card-title">Card title</h4>
+        <!-- Text -->
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <!-- Button -->
+        <a href="#" class="btn btn-primary">Button</a>
+      </div>
+    </div>
+
+    <div class="col-sm-4 card form-group">
+        <!-- Card image -->
+      <div class="view overlay">
+        <img class="card-img-top" src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg" alt="Card image cap">
+        <a href="#!">
+          <div class="mask rgba-white-slight"></div>
+        </a>
+      </div>
+
+      <!-- Card content -->
+      <div class="card-body">
+
+        <!-- Title -->
+        <h4 class="card-title">Card title</h4>
+        <!-- Text -->
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <!-- Button -->
+        <a href="#" class="btn btn-primary">Button</a>
+      </div>
+    </div>
+
+    <div class="col-sm-4 card form-group">
+        <!-- Card image -->
+      <div class="view overlay">
+        <img class="card-img-top" src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg" alt="Card image cap">
+        <a href="#!">
+          <div class="mask rgba-white-slight"></div>
+        </a>
+      </div>
+
+      <!-- Card content -->
+      <div class="card-body">
+
+        <!-- Title -->
+        <h4 class="card-title">Card title</h4>
+        <!-- Text -->
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <!-- Button -->
+        <a href="#" class="btn btn-primary">Button</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4 card form-group">
+      <!-- Card image -->
+      <div class="view overlay">
+        <img class="card-img-top" src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg" alt="Card image cap">
+        <a href="#!">
+          <div class="mask rgba-white-slight"></div>
+        </a>
+      </div>
+
+      <!-- Card content -->
+      <div class="card-body">
+
+        <!-- Title -->
+        <h4 class="card-title">Card title</h4>
+        <!-- Text -->
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <!-- Button -->
+        <a href="#" class="btn btn-primary">Button</a>
+      </div>
+    </div>
+
+    <div class="col-md-4 card form-group">
+      <!-- Card image -->
+      <div class="view overlay">
+        <img class="card-img-top" src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg" alt="Card image cap">
+        <a href="#!">
+          <div class="mask rgba-white-slight"></div>
+        </a>
+      </div>
+
+      <!-- Card content -->
+      <div class="card-body">
+
+        <!-- Title -->
+        <h4 class="card-title">Card title</h4>
+        <!-- Text -->
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <!-- Button -->
+        <a href="#" class="btn btn-primary">Button</a>
+      </div>
+    </div>
+
+    <div class="col-md-4 card form-group">
+      <!-- Card image -->
+      <div class="view overlay">
+        <img class="card-img-top" src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg" alt="Card image cap">
+        <a href="#!">
+          <div class="mask rgba-white-slight"></div>
+        </a>
+      </div>
+
+      <!-- Card content -->
+      <div class="card-body">
+
+        <!-- Title -->
+        <h4 class="card-title">Card title</h4>
+        <!-- Text -->
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <!-- Button -->
+        <a href="#" class="btn btn-primary">Button</a>
+      </div>
+    </div>
+  </div>
+
+
+<!-- Card -->
 
   <!-- /Start your project here-->
 
