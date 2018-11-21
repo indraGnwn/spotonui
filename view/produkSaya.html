@@ -14,7 +14,19 @@
   <link href="../css/mdb.min.css" rel="stylesheet">
   <!-- Your custom styles (optional) -->
   <link href="../css/style.css" rel="stylesheet">
-  <link href="../css/floatbutton.css" rel="stylesheet">
+	<link href="../css/floatbutton.css" rel="stylesheet">
+	
+	<!-- Sweetalert2 -->
+	<link rel="stylesheet" href=../css/sweetalert2.css">
+  <script src="../js/sweetalert2.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.11/dist/sweetalert2.all.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.11/package.json"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.11/sweetalert2.d.ts"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.11/dist/sweetalert2.all.min.js">
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.11/package.json">
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.11/sweetalert2.d.ts">
+  <!-- Sweetalert2 -->
+
 </head>
 
 <body>
@@ -25,7 +37,14 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
           aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-      </button>
+			</button>
+				<div class="collapse navbar-collapse mr-auto" id="navbarNav">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item">
+							<a class="nav-link" data-toggle="modal" data-target="#modalLoginForm">Logout</a>
+						</li>
+					</ul>
+				</div>
   </nav>
 
 
@@ -57,7 +76,8 @@
 			<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 			<!-- Button -->
 			<a href="#" class="btn btn-primary">Lihat Detail</a>
-            <a href="formPost.html" class="btn btn-primary">Edit</a>
+			<a href="formPost.html" class="btn btn-primary">Edit</a>
+			<a class="btn btn-primary" onClick="hapus()">Hapus</a>
 		  </div>
 		</div>
 
@@ -80,7 +100,8 @@
 			<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 			<!-- Button -->
 			<a href="#" class="btn btn-primary">Lihat Detail</a>
-            <a href="formPost.html" class="btn btn-primary">Edit</a>
+			<a href="formPost.html" class="btn btn-primary">Edit</a>
+			<a class="btn btn-primary" onClick="hapus()">Hapus</a>
 		  </div>
 		</div>
 	</div>
@@ -104,7 +125,8 @@
 			<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 			<!-- Button -->
 			<a href="#" class="btn btn-primary">Lihat Detail</a>
-            <a href="formPost.html" class="btn btn-primary">Edit</a>
+			<a href="formPost.html" class="btn btn-primary">Edit</a>
+			<a class="btn btn-primary" onClick="hapus()">Hapus</a>
 		  </div>
 		</div>
 
@@ -127,13 +149,12 @@
 			<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 			<!-- Button -->
 			<a href="#" class="btn btn-primary">Lihat Detail</a>
-            <a href="formPost.html" class="btn btn-primary">Edit</a>
+			<a href="formPost.html" class="btn btn-primary">Edit</a>
+			<a class="btn btn-primary" onClick="hapus()">Hapus</a>
 		  </div>
 		</div>
 	</div>
 </div>
-
-  <!-- /Start your project here-->
 
   <!-- SCRIPTS -->
   <!-- JQuery -->
@@ -145,39 +166,42 @@
   <!-- MDB core JavaScript -->
   <script type="text/javascript" src="../js/mdb.min.js"></script>
 
-  <script type="text/javascript">
-    $("#loginForm").submit(function(e){
-		e.preventDefault();
-		$.ajax({
-            type:"POST",
-            url: $(this).attr("action"),
-            data: $(this).find('input').serialize(),
-            dataType: 'json',
-            success: function(Response){
-				if(Response.success){
-					alert(Response.message);
-				}
-			},
-            failure: function(Response){console.log(Response);}
-		});
-	});
+	<script>
+		function hapus(){
+			const swalWithBootstrapButtons = swal.mixin({
+				confirmButtonClass: 'btn btn-success',
+				cancelButtonClass: 'btn btn-danger',
+				buttonsStyling: false,
+			})
 
-    $("#registerForm").submit(function(e){
-		e.preventDefault();
-		$.ajax({
-            type:"POST",
-            url: $(this).attr("action"),
-            data: $(this).find('input').serialize(),
-            dataType: 'json',
-            success: function(Response){
-				if(Response.success){
-					alert(Response.message);
+			swalWithBootstrapButtons({
+				title: 'Are you sure?',
+				text: "You won't be able to revert this!",
+				type: 'warning',
+				showCancelButton: true,
+				confirmButtonText: 'Yes, delete it!',
+				cancelButtonText: 'No, cancel!',
+				reverseButtons: true
+			}).then((result) => {
+				if (result.value) {
+					swalWithBootstrapButtons(
+						'Deleted!',
+						'Your file has been deleted.',
+						'success'
+					)
+				} else if (
+					// Read more about handling dismissals
+					result.dismiss === swal.DismissReason.cancel
+				) {
+					swalWithBootstrapButtons(
+						'Cancelled',
+						'Your imaginary file is safe :)',
+						'error'
+					)
 				}
-			},
-            failure: function(Response){console.log(Response);}
-		});
-	});
-  </script>
+			})
+		}
+</script>
 </body>
 
 </html>
