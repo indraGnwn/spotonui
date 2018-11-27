@@ -17,7 +17,7 @@
 	<link href="../css/floatbutton.css" rel="stylesheet">
 	
 	<!-- Sweetalert2 -->
-	<link rel="stylesheet" href=../css/sweetalert2.css">
+	<link rel="stylesheet" href="../css/sweetalert2.css">
   <script src="../js/sweetalert2.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.11/dist/sweetalert2.all.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.11/package.json"></script>
@@ -173,7 +173,6 @@
 				cancelButtonClass: 'btn btn-danger',
 				buttonsStyling: false,
 			})
-
 			swalWithBootstrapButtons({
 				title: 'Are you sure?',
 				text: "You won't be able to revert this!",
@@ -184,6 +183,10 @@
 				reverseButtons: true
 			}).then((result) => {
 				if (result.value) {
+					$.ajax({
+            type:"DELETE",
+            url: "http://localhost:8000/produk/delete/{id}"
+		  		});
 					swalWithBootstrapButtons(
 						'Deleted!',
 						'Your file has been deleted.',

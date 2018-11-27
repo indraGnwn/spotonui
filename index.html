@@ -243,34 +243,39 @@
 
   <script type="text/javascript">
     $("#loginForm").submit(function(e){
-		e.preventDefault();
+    e.preventDefault();
 		$.ajax({
-            type:"POST",
-            url: $(this).attr("action"),
-            data: $(this).find('input').serialize(),
-            dataType: 'json',
-            success: function(Response){
-				if(Response.success){
-					alert(Response.message);
-				}
-			},
-            failure: function(Response){console.log(Response);}
+        type:"POST",
+        url: $(this).attr("action"),
+        data: $(this).find('input').serialize(),
+        dataType: 'json',
+        success: function(Response){
+          if(Response.success){
+            alert(Response.message);
+            localStorage.setItem('token',Response.data[1]);
+            localStorage.setItem('user',Response.data[0]);
+            window.location.replace("http://localhost/view/produkSaya.html");
+          }else{
+            alert(Response.message);
+          }
+        }
 		});
 	});
 
     $("#registerForm").submit(function(e){
 		e.preventDefault();
 		$.ajax({
-            type:"POST",
-            url: $(this).attr("action"),
-            data: $(this).find('input').serialize(),
-            dataType: 'json',
-            success: function(Response){
+      type:"POST",
+      url: $(this).attr("action"),
+      data: $(this).find('input').serialize(),
+      dataType: 'json',
+      success: function(Response){
 				if(Response.success){
 					alert(Response.message);
-				}
-			},
-            failure: function(Response){console.log(Response);}
+				}else{
+          alert(Response.message);
+        }
+			}
 		});
 	});
   </script>
