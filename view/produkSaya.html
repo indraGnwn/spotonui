@@ -55,9 +55,9 @@
 <!-- end  post buttn -->
 
 <!-- Card -->
-<div class="container">
+<div class="container" id="app">
 	<div class="row">
-		<div class="col-sm-5 card form-group m-4 p-4">
+		<div class="col-sm-5 card form-group m-4 p-4" v-for="p in produk">
 
 		  <!-- Card image -->
 		  <div class="view overlay">
@@ -71,88 +71,16 @@
 		  <div class="card-body">
 
 			<!-- Title -->
-			<h4 class="card-title">Card title</h4>
+			<h4 class="card-title">{{ p.nama_produk }}</h4>
 			<!-- Text -->
-			<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+			<p class="card-text">{{ 'Rp' + p.harga }}</p>
 			<!-- Button -->
 			<a href="#" class="btn btn-primary">Lihat Detail</a>
 			<a href="editPost.html" class="btn btn-primary">Edit</a>
-			<a class="btn btn-primary" onClick="hapus()">Hapus</a>
+			<a class="btn btn-primary" onClick="hapus(id)">Hapus</a>
 		  </div>
 		</div>
 
-		<div class="col-sm-5 card form-group m-4 p-4">
-		
-			<!-- Card image -->
-		  <div class="view overlay">
-			<img class="card-img-top" src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg" alt="Card image cap">
-			<a href="#!">
-			  <div class="mask rgba-white-slight"></div>
-			</a>
-		  </div>
-
-		  <!-- Card content -->
-		  <div class="card-body">
-
-			<!-- Title -->
-			<h4 class="card-title">Card title</h4>
-			<!-- Text -->
-			<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-			<!-- Button -->
-			<a href="#" class="btn btn-primary">Lihat Detail</a>
-			<a href="editPost.html" class="btn btn-primary">Edit</a>
-			<a class="btn btn-primary" onClick="hapus()">Hapus</a>
-		  </div>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-sm-5 card form-group m-4 p-4">
-
-		  <!-- Card image -->
-		  <div class="view overlay">
-			<img class="card-img-top" src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg" alt="Card image cap">
-			<a href="#!">
-			  <div class="mask rgba-white-slight"></div>
-			</a>
-		  </div>
-
-		  <!-- Card content -->
-		  <div class="card-body">
-
-			<!-- Title -->
-			<h4 class="card-title">Card title</h4>
-			<!-- Text -->
-			<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-			<!-- Button -->
-			<a href="#" class="btn btn-primary">Lihat Detail</a>
-			<a href="editPost.html" class="btn btn-primary">Edit</a>
-			<a class="btn btn-primary" onClick="hapus()">Hapus</a>
-		  </div>
-		</div>
-
-		<div class="col-sm-5 card form-group m-4 p-4">
-		
-			<!-- Card image -->
-		  <div class="view overlay">
-			<img class="card-img-top" src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg" alt="Card image cap">
-			<a href="#!">
-			  <div class="mask rgba-white-slight"></div>
-			</a>
-		  </div>
-
-		  <!-- Card content -->
-		  <div class="card-body">
-
-			<!-- Title -->
-			<h4 class="card-title">Card title</h4>
-			<!-- Text -->
-			<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-			<!-- Button -->
-			<a href="#" class="btn btn-primary">Lihat Detail</a>
-			<a href="editPost.html" class="btn btn-primary">Edit</a>
-			<a class="btn btn-primary" onClick="hapus()">Hapus</a>
-		  </div>
-		</div>
 	</div>
 </div>
 
@@ -164,10 +92,12 @@
   <!-- Bootstrap core JavaScript -->
   <script type="text/javascript" src="../js/bootstrap.min.js"></script>
   <!-- MDB core JavaScript -->
-  <script type="text/javascript" src="../js/mdb.min.js"></script>
+	<script type="text/javascript" src="../js/mdb.min.js"></script>
+	
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
 
 	<script>
-		function hapus(){
+		function hapus(id){
 			const swalWithBootstrapButtons = swal.mixin({
 				confirmButtonClass: 'btn btn-success',
 				cancelButtonClass: 'btn btn-danger',
@@ -185,7 +115,7 @@
 				if (result.value) {
 					$.ajax({
             type:"DELETE",
-            url: "http://localhost:8000/produk/delete/{id}"
+            url: "http://localhost:8000/produk/delete/" + id
 		  		});
 					swalWithBootstrapButtons(
 						'Deleted!',
@@ -204,6 +134,31 @@
 				}
 			})
 		}
+
+		var app = new Vue({
+			el: '#app',
+			data: {
+				message: 'Hello Vue.js!',
+				produk: null
+			},
+			methods: {
+				getProduk: function(){
+					self = this;
+					$.ajax({
+						type: "GET",
+						url: "http://localhost:8000/produk",
+						dataType: "json",
+						success: function (response) {
+							self.produk = response.data;
+							console.table(response)
+						}
+					});
+				}
+			},
+			created: function(){
+        this.getProduk();
+    	}
+		})
 </script>
 </body>
 
